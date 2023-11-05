@@ -47,6 +47,8 @@
         curl
         wget
         git
+        neofetch
+        btop
     ];
 
     environment.variables.EDITOR = "micro";
