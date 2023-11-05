@@ -1,19 +1,23 @@
 {config, pkgs, ... }:
 {
     imports = [
-        ./hardware-configuration.nix 
-        ../../modules/nixos/core.nix    #yhdistää muihin paikkoihin kirjoitetut tiedostot default.nixiin
-        ../../modules/nixos/users.nix
+        # yhdistää muihin paikkoihin kirjoitetut tiedostot default.nixiin
+        ./hardware-configuration.nix # laitteiston kokoopanon tiedot
+        ../../modules/nixos/core.nix # yleiset asetukset
+        ../../modules/nixos/users.nix # käyttäjätilit
         ];
 
+    # EFI käynnistyslataajan asetukset
     boot.loader = {
+        # Saa muokata EFI muuttujia (käynnistysvaihtoehtojen lisäksi UEFI:in)
         efi.canTouchEfiVariables = true;
+        # valittu käynnistyslataaja
         systemd-boot.enable = true;
     };
 
     networking = {
-        hostName = "nixos-elmu";
-        networkmanager.enable = true;
+        hostName = "nixos-elmu"; #järjestelmän nimi
+        networkmanager.enable = true; # networkmanager netin käyttämiseksi
     };
 
     system.stateVersion = "23.05"; #tämä ei muutu ilman, että on varmistettu järjestelmän päivitysten jälkeinen toimivuus!!
