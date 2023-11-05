@@ -33,7 +33,7 @@
         LC_TIME = "fi_FI.UTF-8";
     };   
 
-    servises.openssh = {
+    services.openssh = {
         enable = true;
         settings = {
             X11Forwarding = false;
