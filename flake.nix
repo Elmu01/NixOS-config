@@ -15,7 +15,7 @@
                     ./hosts/nixos-elmu
                     home-manager.nixosModules.home-manager
                     {
-                        home-manager.userGlobalPkgs = true;
+                        home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.users.elmu = import ./home/nixos-elmu.nix;
                     }
