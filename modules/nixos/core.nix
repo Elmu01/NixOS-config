@@ -1,23 +1,10 @@
-{config, pkgs, ... }:
+{lib, pkgs, ...}:
 {
-    imports = [../hardware-configuration.nix];
-
-    boot.loader = {
-        efi.canTouchEfiVariables = true;
-        systemd-boot.enable = true;
-    };
-
-    networking = {
-        hostName = "nixos-elmu";
-        networkmanager.enable = true;
-    };
-
     nixpkgs.config.allowUnfree = true;
 
     nix.settings = {
         experimental-features = ["nix-command" "flakes"];
         auto-optimise-store = true; 
-        trusted-users = ["elmu"];
     };
 
     time.timeZone = "Europe/Helsinki";
@@ -52,20 +39,4 @@
     ];
 
     environment.variables.EDITOR = "micro";
-
-    users.groups.elmu = {};
-
-    users.users.elmu ={
-        hashedPassword = "$6$8hkMhUxa77V32BMO$gML7IooUyAX3ICLpPwMGUl8IM.c7stUvy/HaUqNRtWBy/78lrL6lExHTp./vhlXveV7reXfqvYwNbinaX/Tcs/";
-        home = "/home/elmu";
-        isNormalUser = true;
-        extraGroups = [
-            "elmu"
-            "users"
-            "networkmanager"
-            "wheel"
-        ];
-    };
-
-    system.stateVersion = "23.05"; #tämä ei muutu ilman, että on varmistettu järjestelmän päivitysten jälkeinen toimivuus!!
 }
