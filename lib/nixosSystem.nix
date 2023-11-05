@@ -17,7 +17,7 @@
 
                     # 'nix repl '<nixpkgs>' käyttämään samoja paketti versioita kuin itse järjestelmä'
                     environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
-                    nix.nixpath = ["/etc/nix/inputs"];
+                    nix.nixPath = ["/etc/nix/inputs"];
                 }
 
                 home-manager.nixosModules.home-manager
