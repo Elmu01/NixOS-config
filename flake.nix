@@ -6,21 +6,25 @@
         home-manager,
         ...
     } @ inputs: let
-    username = "elmu";
+        nixosSystem = import ./lib/nixosSystem.nix;
+
+        nixos-elmu-modules = {
+
+            nixos-modules = [
+                ./hosts/nixos-elmu
+            ];
+            home-module = import ./home/nixos-elmu.nix;
+        };
     in {
-        nixosConfigurations = {
-            nixos-elmu = nixpkgs.lib.nixosSystem {
+        nixosConfigurations = let
+            base-args = {
+                inherit home-manager;
+                nixpkgs = nixpkgs;
                 system = "x86_64-linux";
-                modules = [
-                    ./hosts/nixos-elmu
-                    home-manager.nixosModules.home-manager
-                    {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.elmu = import ./home/nixos-elmu.nix;
-                    }
-                ];
-            }; 
+                specialArgs = inputs;
+            };
+        in {
+            nixos-elmu = nixosSystem (nixos-elmu-modules // base-args);
         };
     };
 
