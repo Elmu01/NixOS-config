@@ -13,7 +13,7 @@
             ++ [
                 {
                     # 'nix run nixpkgs#nixpkgs' käyttämään samoja paketti versioita kuin järjestelmä itse
-                    nix.registery.nixpkgs.flake = nixpkgs;
+                    nix.registry.nixpkgs.flake = nixpkgs;
 
                     # 'nix repl '<nixpkgs>' käyttämään samoja paketti versioita kuin itse järjestelmä'
                     environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
