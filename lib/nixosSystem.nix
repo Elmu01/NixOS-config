@@ -9,7 +9,7 @@
     nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
         modules = 
-            nixosmodules
+            nixos-modules
             ++ [
                 {
                     # 'nix run nixpkgs#nixpkgs' käyttämään samoja paketti versioita kuin järjestelmä itse
