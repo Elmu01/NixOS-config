@@ -8,12 +8,18 @@
         ../../modules/nixos/desktop.nix # työpöydän asetukset
         ];
 
-    # EFI käynnistyslataajan asetukset
-    boot.loader = {
+    # UEFI-boot
+   # boot.loader = {
         # Saa muokata EFI muuttujia (käynnistysvaihtoehtojen lisäksi UEFI:in)
-        efi.canTouchEfiVariables = true;
-        # valittu käynnistyslataaja
-        systemd-boot.enable = true;
+   #     efi.canTouchEfiVariables = true;
+   #     # valittu käynnistyslataaja
+   #     systemd-boot.enable = true;
+   # };
+
+    # Bios-boot
+    boot.loader.grub = {
+        enable = true;
+        device = "/dev/vda1";
     };
 
     networking = {
