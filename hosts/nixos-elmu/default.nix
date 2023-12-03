@@ -5,6 +5,7 @@
         ./hardware-configuration.nix # laitteiston kokoopanon tiedot
         ../../modules/nixos/core.nix # yleiset asetukset
         ../../modules/nixos/users.nix # käyttäjätilit
+        ../../modules/nixos/desktop.nix # työpöydän asetukset
         ];
 
     # EFI käynnistyslataajan asetukset
