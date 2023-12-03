@@ -6,6 +6,7 @@
         ../../modules/nixos/core.nix # yleiset asetukset
         ../../modules/nixos/users.nix # käyttäjätilit
         ../../modules/nixos/desktop.nix # työpöydän asetukset
+        ../../modules/nixos/programs.nix # sovellukset tänne
         ];
 
     # UEFI-boot
