@@ -4,7 +4,6 @@
         bash
     ];
 
-    program.bash.enable = true;
     users.defaultUserShell = pkgs.bash;
     environment.systemPackages = with pkgs; [
     psmisc
@@ -33,9 +32,9 @@ services = {
 
 #Fontit ja oletusfontit
 fomts = {
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
         noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
