@@ -27,5 +27,5 @@
         networkmanager.enable = true; # networkmanager netin käyttämiseksi
     };
 
-    system.stateVersion = "23.05"; #tämä ei muutu ilman, että on varmistettu järjestelmän päivitysten jälkeinen toimivuus!!
+    system.stateVersion = "23.11"; #tämä ei muutu ilman, että on varmistettu järjestelmän päivitysten jälkeinen toimivuus!!
 }

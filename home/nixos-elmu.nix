@@ -11,7 +11,7 @@
             btop
         ];
 
-        stateVersion = "23.05";
+        stateVersion = "23.11";
     };
 
     # Anna home managerin hallita itseään
